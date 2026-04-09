@@ -715,6 +715,13 @@ class MahjongGame {
       return;
     }
     this.phase = 'playing';
+    // 判斷是自身動作（自摸/暗槓/加槓）還是別人打牌的動作
+    // 如果沒有 lastDiscardedTile，表示是摸牌後的自身動作 pass，應該回到自己打牌
+    if (!this.lastDiscardedTile) {
+      // 放棄自摸/暗槓/加槓 → 自己打牌
+      this._update();
+      return;
+    }
     this._continueAfterDiscard();
   }
 
