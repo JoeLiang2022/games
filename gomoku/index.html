@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>五子棋 Gomoku</title>
+<link rel="stylesheet" href="css/style.css?v=20260324c">
+</head>
+<body>
+<!-- 主選單 -->
+<div id="menuScreen" class="screen active">
+  <div class="menu-bg"></div>
+  <div class="menu-content">
+    <h1 class="title-glow">五子棋</h1>
+    <p class="subtitle">GOMOKU</p>
+    <div class="menu-buttons">
+      <button class="btn-neon" onclick="UI.showSingleSetup()">🎮 單人對戰</button>
+      <button class="btn-neon" onclick="UI.showMultiplayer()">🌐 多人連線</button>
+      <button class="btn-neon btn-history" onclick="UI.showHistory()">📋 對戰紀錄</button>
+    </div>
+  </div>
+</div>
+
+<!-- 單人設定 -->
+<div id="setupScreen" class="screen">
+  <div class="panel">
+    <h2>單人對戰設定</h2>
+    <div class="setup-group">
+      <label>AI 等級（級段制）</label>
+      <div class="btn-group rank-grid">
+        <button class="btn-opt rank-btn" data-diff="30k"><span class="rank-label">30級</span><span class="rank-sub">入門</span></button>
+        <button class="btn-opt rank-btn" data-diff="20k"><span class="rank-label">20級</span><span class="rank-sub">初學</span></button>
+        <button class="btn-opt rank-btn active" data-diff="10k"><span class="rank-label">10級</span><span class="rank-sub">中級</span></button>
+        <button class="btn-opt rank-btn" data-diff="5k"><span class="rank-label">5級</span><span class="rank-sub">上級</span></button>
+        <button class="btn-opt rank-btn" data-diff="1k"><span class="rank-label">1級</span><span class="rank-sub">高手</span></button>
+        <button class="btn-opt rank-btn dan" data-diff="1d"><span class="rank-label">初段</span><span class="rank-sub">段位</span></button>
+        <button class="btn-opt rank-btn dan" data-diff="3d"><span class="rank-label">三段</span><span class="rank-sub">強者</span></button>
+      </div>
+    </div>
+    <div class="setup-group">
+      <label>執子</label>
+      <div class="btn-group">
+        <button class="btn-opt active" data-color="black">⚫ 黑子（先手）</button>
+        <button class="btn-opt" data-color="white">⚪ 白子</button>
+      </div>
+    </div>
+    <div class="setup-group">
+      <label class="toggle-row">
+        <span>📖 教學模式</span>
+        <span class="toggle-hint">邊下棋邊學習，AI 即時指導</span>
+        <input type="checkbox" id="tutorialToggle" checked>
+        <span class="toggle-slider"></span>
+      </label>
+    </div>
+    <div class="setup-group">
+      <label>🎵 背景音樂</label>
+      <div class="music-selector" id="musicSelector"></div>
+    </div>
+    <div class="setup-actions">
+      <button class="btn-neon" onclick="UI.startSingleGame()">開始遊戲</button>
+      <button class="btn-ghost" onclick="UI.showMenu()">返回</button>
+    </div>
+  </div>
+</div>
+
+<!-- 遊戲畫面 -->
+<div id="gameScreen" class="screen">
+  <div id="gameHeader">
+    <div id="turnIndicator">
+      <span id="turnDot" class="dot-black"></span>
+      <span id="turnText">黑子的回合</span>
+    </div>
+    <div id="moveCount">第 0 手</div>
+    <div id="gameTimer" class="game-timer"></div>
+    <button id="btnMenu" class="btn-icon" onclick="UI.confirmExit()" title="選單">☰</button>
+  </div>
+  <div id="boardContainer">
+    <canvas id="boardCanvas"></canvas>
+    <div id="tutorialHint" class="tutorial-hint"></div>
+  </div>
+  <div id="gameFooter">
+    <button id="btnExit" class="btn-sm btn-exit" onclick="UI.confirmExit()" title="退出">✕ 退出</button>
+    <button id="btnUndo" class="btn-sm" onclick="Game.undo()" title="悔棋">↩ 悔棋</button>
+    <button id="btnNumbers" class="btn-sm" onclick="UI.toggleNumbers()" title="手數">🔢 手數</button>
+    <button id="btnSound" class="btn-sm" onclick="Sound.toggle()" title="音效">🔊</button>
+    <button id="btnMusic" class="btn-sm" onclick="BGM.toggle()" title="音樂" style="opacity:0.4">🎵</button>
+  </div>
+</div>
+
+<!-- 勝利畫面 -->
+<div id="winOverlay" class="overlay">
+  <canvas id="vfxCanvas"></canvas>
+  <div class="win-content">
+    <h2 id="winTitle"></h2>
+    <p id="winSub"></p>
+    <div class="win-actions">
+      <button class="btn-neon" onclick="UI.rematch()">再來一局</button>
+      <button class="btn-neon" onclick="UI.showAnalysis()">📊 覆盤分析</button>
+      <button class="btn-neon" onclick="UI.showReplay()">棋譜回放</button>
+      <button class="btn-ghost" onclick="UI.showMenu()">回主選單</button>
+    </div>
+  </div>
+</div>
+
+<!-- 棋譜回放 -->
+<div id="replayOverlay" class="overlay">
+  <div class="panel replay-panel">
+    <h2>棋譜回放</h2>
+    <div id="replayBoardContainer">
+      <canvas id="replayCanvas"></canvas>
+    </div>
+    <div class="replay-controls">
+      <button class="btn-sm" onclick="UI.replayStep(-999)">⏮</button>
+      <button class="btn-sm" onclick="UI.replayStep(-1)">◀</button>
+      <span id="replayStep">0 / 0</span>
+      <button class="btn-sm" onclick="UI.replayStep(1)">▶</button>
+      <button class="btn-sm" onclick="UI.replayStep(999)">⏭</button>
+    </div>
+    <div class="replay-comment" id="replayComment"></div>
+    <button class="btn-ghost" onclick="UI.closeReplay()">關閉</button>
+  </div>
+</div>
+
+<!-- 多人連線（Phase 2 placeholder） -->
+<div id="multiScreen" class="screen">
+  <div class="panel">
+    <h2>多人連線</h2>
+    <p style="color:#888;margin:20px 0;">🚧 開發中，敬請期待...</p>
+    <button class="btn-ghost" onclick="UI.showMenu()">返回</button>
+  </div>
+</div>
+
+<!-- 對戰紀錄 -->
+<div id="historyOverlay" class="overlay">
+  <div class="panel history-panel">
+    <div class="history-header">
+      <h2>📋 對戰紀錄</h2>
+      <button class="btn-icon" onclick="UI.closeHistory()">✕</button>
+    </div>
+    <div id="historyStats" class="history-stats"></div>
+    <div id="historyList" class="history-list"></div>
+    <div class="history-footer">
+      <button class="btn-ghost" onclick="UI.closeHistory()">關閉</button>
+      <button class="btn-ghost btn-danger" onclick="UI.clearHistory()">清除紀錄</button>
+    </div>
+  </div>
+</div>
+
+<!-- 覆盤分析 -->
+<div id="analysisOverlay" class="overlay">
+  <div class="analysis-panel">
+    <div class="analysis-header">
+      <h2>📊 覆盤分析</h2>
+      <button class="btn-icon" onclick="UI.closeAnalysis()">✕</button>
+    </div>
+    <div id="analysisLoading" class="analysis-loading">
+      <div class="spinner"></div>
+      <p>分析中...</p>
+    </div>
+    <div id="analysisContent" style="display:none;">
+      <!-- 摘要 -->
+      <div class="analysis-summary">
+        <div class="accuracy-ring">
+          <svg viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" fill="none" stroke="#222" stroke-width="8"/>
+            <circle id="accuracyCircle" cx="50" cy="50" r="42" fill="none" stroke="#00d4ff" stroke-width="8"
+              stroke-dasharray="264" stroke-dashoffset="264" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+          </svg>
+          <div class="accuracy-text">
+            <span id="accuracyPct">0</span><small>%</small>
+            <div class="accuracy-label">準確率</div>
+          </div>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-item"><span class="stat-dot" style="background:#00d4ff"></span>最佳 <span id="statBest">0</span></div>
+          <div class="stat-item"><span class="stat-dot" style="background:#4caf50"></span>好棋 <span id="statGood">0</span></div>
+          <div class="stat-item"><span class="stat-dot" style="background:#888"></span>普通 <span id="statOk">0</span></div>
+          <div class="stat-item"><span class="stat-dot" style="background:#ff9800"></span>疑問手 <span id="statInaccuracy">0</span></div>
+          <div class="stat-item"><span class="stat-dot" style="background:#f44336"></span>失誤 <span id="statMistake">0</span></div>
+          <div class="stat-item"><span class="stat-dot" style="background:#d32f2f"></span>大失誤 <span id="statBlunder">0</span></div>
+        </div>
+      </div>
+      <!-- 勝率曲線 -->
+      <div class="chart-section">
+        <h3>勝率變化</h3>
+        <canvas id="winRateChart"></canvas>
+      </div>
+      <!-- 關鍵轉折 -->
+      <div class="moments-section">
+        <h3>🔑 關鍵轉折</h3>
+        <div id="momentsList"></div>
+      </div>
+      <!-- AI 教練評語 -->
+      <div class="gemini-section">
+        <h3>🤖 AI 教練評語</h3>
+        <div id="geminiReview" class="gemini-review">
+          <div class="gemini-loading"><div class="spinner-sm"></div> Gemini 分析中...</div>
+        </div>
+      </div>
+      <!-- 逐手分析 -->
+      <div class="moves-section">
+        <h3>逐手分析</h3>
+        <div id="movesList"></div>
+      </div>
+    </div>
+    <div class="analysis-footer">
+      <button class="btn-ghost" onclick="UI.closeAnalysis()">關閉</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/sound.js"></script>
+<script src="js/bgm.js?v=20260324e"></script>
+<script src="js/vfx.js"></script>
+<script src="js/board.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/analysis.js"></script>
+<script src="js/history.js"></script>
+<script src="js/game.js?v=20260324f"></script>
+<script src="js/ui.js?v=20260324g"></script>
+</body>
+</html>
