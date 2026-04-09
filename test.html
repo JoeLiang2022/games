@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Mahjong Test</title></head>
+<body>
+<h2>Mahjong Game Test</h2>
+<pre id="log"></pre>
+<script>
+function log(msg) {
+  document.getElementById('log').textContent += msg + '\n';
+  console.log(msg);
+}
+</script>
+<!-- Load all game files exactly like index.html -->
+<div id="game-table">
+  <div id="field">
+    <div id="center-info"><div class="wind-circle">東風圈</div><div class="remaining">剩餘 -- 張</div></div>
+    <div id="version-tag">test</div>
+    <div id="wall-north" class="wall-side wall-h"></div>
+    <div id="wall-south" class="wall-side wall-h"></div>
+    <div id="wall-west" class="wall-side wall-v"></div>
+    <div id="wall-east" class="wall-side wall-v"></div>
+    <div id="discard-north" class="discard-area"></div>
+    <div id="discard-south" class="discard-area"></div>
+    <div id="discard-west" class="discard-area"></div>
+    <div id="discard-east" class="discard-area"></div>
+    <div id="melds-north" class="melds-area"></div>
+    <div id="melds-south" class="melds-area"></div>
+    <div id="melds-west" class="melds-area"></div>
+    <div id="melds-east" class="melds-area"></div>
+  </div>
+  <div id="player-north"></div>
+  <div id="player-west"></div>
+  <div id="player-east"></div>
+  <div id="player-south"><div class="info-row"></div><div class="hand-area"></div></div>
+  <div id="dice-overlay">
+    <div class="dice-title">擲骰子決定莊家</div>
+    <div class="dice-container">
+      <div class="die" id="die1">⚀</div><div class="die" id="die2">⚀</div><div class="die" id="die3">⚀</div>
+    </div>
+    <div class="dice-result" id="dice-result"></div>
+  </div>
+  <div id="action-bar"></div>
+  <div id="start-screen" style="display:none"></div>
+  <div id="result-overlay"></div>
+  <div id="danger-panel"></div>
+</div>
+<link rel="stylesheet" href="css/style.css?v=test">
+<script src="js/tiles.js?v=test"></script>
+<script src="js/game.js?v=test"></script>
+<script src="js/scoring.js?v=test"></script>
+<script src="js/sound.js?v=test"></script>
+<script src="js/voice.js?v=test"></script>
+<script src="js/analysis.js?v=test"></script>
+<script src="js/net.js?v=test"></script>
+<script src="js/vfx.js?v=test"></script>
+<script src="js/touch.js?v=test"></script>
+<script src="js/bgm.js?v=test"></script>
+<script src="js/ui.js?v=test"></script>
+<script>
+log('=== All JS loaded ===');
+try {
+  var game = new MahjongGame();
+  log('✅ MahjongGame created');
+  game.players[0].name = 'TestPlayer';
+  game.players[0].isHuman = true;
+  initUI(game);
+  log('✅ initUI done');
+
+  // Skip dice animation, directly start
+  log('Calling startRound directly...');
+  game.rollDice(0);
+  game.startRound();
+  log('✅ startRound done, phase=' + game.phase);
+  log('Hand[0]: ' + game.players[0].hand.length + ' tiles');
+  log('Remaining: ' + game.getRemainingTiles());
+  for (var i = 0; i < 4; i++) {
+    log('Player ' + i + ': hand=' + game.players[i].hand.length + ' flowers=' + game.players[i].flowers.length);
+  }
+  log('\n🎉 GAME WORKS! Check if tiles render below.');
+} catch(e) {
+  log('❌ ERROR: ' + e.message);
+  log(e.stack);
+}
+</script>
+</body></html>
