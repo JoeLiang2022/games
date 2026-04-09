@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>中國象棋</title>
+<link rel="stylesheet" href="css/style.css?v=12">
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <h1>中國象棋</h1>
+    <span id="moveCount" class="move-count">第 1 回合</span>
+    <button id="btnTheme" class="icon-btn" title="主題">🎨</button>
+    <button id="btnSound" class="icon-btn" title="音效">🔊</button>
+    <button id="btnMusic" class="icon-btn" title="音樂">🎵</button>
+    <button id="btnStats" class="icon-btn" title="戰績">📊</button>
+  </div>
+  <div id="statusText" class="status-text red-turn">紅方走棋</div>
+  <div id="teachHint" class="teach-hint" style="display:none"></div>
+  <div id="bgmInfo" class="bgm-info" style="display:none"></div>
+  <div class="board-wrap">
+    <canvas id="gameCanvas" width="560" height="620"></canvas>
+  </div>
+  <div id="themePanel" class="theme-panel" style="display:none"></div>
+  <div id="statsPanel" class="stats-panel" style="display:none"></div>
+  <div class="controls">
+    <button id="btnNewGame">🔄 新局</button>
+    <button id="btnUndo">↩ 悔棋</button>
+    <button id="btnFlip">🔃 翻轉</button>
+    <select id="selDifficulty" class="diff-select">
+      <option value="1">🟢 入門</option>
+      <option value="2">🟡 初級</option>
+      <option value="3" selected>🟠 中級</option>
+      <option value="4">🔴 高級</option>
+    </select>
+  </div>
+</div>
+<script src="js/themes.js?v=12"></script>
+<script src="js/game.js?v=12"></script>
+<script src="js/board.js?v=12"></script>
+<script src="js/ai.js?v=12"></script>
+<script src="js/sound.js?v=12"></script>
+<script src="js/bgm.js?v=12"></script>
+<script src="js/stats.js?v=12"></script>
+<script src="js/ui.js?v=12"></script>
+</body>
+</html>
