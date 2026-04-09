@@ -1,0 +1,324 @@
+{
+  "pong": {
+    "char1": [
+      "audio/pong_char1_0.mp3",
+      "audio/pong_char1_1.mp3",
+      "audio/pong_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/pong_char2_0.mp3",
+      "audio/pong_char2_1.mp3",
+      "audio/pong_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/pong_char3_0.mp3",
+      "audio/pong_char3_1.mp3",
+      "audio/pong_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/pong_char4_0.mp3",
+      "audio/pong_char4_1.mp3",
+      "audio/pong_char4_2.mp3"
+    ]
+  },
+  "kong": {
+    "char1": [
+      "audio/kong_char1_0.mp3",
+      "audio/kong_char1_1.mp3",
+      "audio/kong_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/kong_char2_0.mp3",
+      "audio/kong_char2_1.mp3",
+      "audio/kong_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/kong_char3_0.mp3",
+      "audio/kong_char3_1.mp3",
+      "audio/kong_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/kong_char4_0.mp3",
+      "audio/kong_char4_1.mp3",
+      "audio/kong_char4_2.mp3"
+    ]
+  },
+  "chow": {
+    "char1": [
+      "audio/chow_char1_0.mp3",
+      "audio/chow_char1_1.mp3",
+      "audio/chow_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/chow_char2_0.mp3",
+      "audio/chow_char2_1.mp3",
+      "audio/chow_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/chow_char3_0.mp3",
+      "audio/chow_char3_1.mp3",
+      "audio/chow_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/chow_char4_0.mp3",
+      "audio/chow_char4_1.mp3",
+      "audio/chow_char4_2.mp3"
+    ]
+  },
+  "win": {
+    "char1": [
+      "audio/win_char1_0.mp3",
+      "audio/win_char1_1.mp3",
+      "audio/win_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/win_char2_0.mp3",
+      "audio/win_char2_1.mp3",
+      "audio/win_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/win_char3_0.mp3",
+      "audio/win_char3_1.mp3",
+      "audio/win_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/win_char4_0.mp3",
+      "audio/win_char4_1.mp3",
+      "audio/win_char4_2.mp3"
+    ]
+  },
+  "zimo": {
+    "char1": [
+      "audio/zimo_char1_0.mp3",
+      "audio/zimo_char1_1.mp3",
+      "audio/zimo_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/zimo_char2_0.mp3",
+      "audio/zimo_char2_1.mp3",
+      "audio/zimo_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/zimo_char3_0.mp3",
+      "audio/zimo_char3_1.mp3",
+      "audio/zimo_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/zimo_char4_0.mp3",
+      "audio/zimo_char4_1.mp3",
+      "audio/zimo_char4_2.mp3"
+    ]
+  },
+  "lose": {
+    "char1": [
+      "audio/lose_char1_0.mp3",
+      "audio/lose_char1_1.mp3",
+      "audio/lose_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/lose_char2_0.mp3",
+      "audio/lose_char2_1.mp3",
+      "audio/lose_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/lose_char3_0.mp3",
+      "audio/lose_char3_1.mp3",
+      "audio/lose_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/lose_char4_0.mp3",
+      "audio/lose_char4_1.mp3",
+      "audio/lose_char4_2.mp3"
+    ]
+  },
+  "draw": {
+    "char1": [
+      "audio/draw_char1_0.mp3",
+      "audio/draw_char1_1.mp3",
+      "audio/draw_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/draw_char2_0.mp3",
+      "audio/draw_char2_1.mp3",
+      "audio/draw_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/draw_char3_0.mp3",
+      "audio/draw_char3_1.mp3",
+      "audio/draw_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/draw_char4_0.mp3",
+      "audio/draw_char4_1.mp3",
+      "audio/draw_char4_2.mp3"
+    ]
+  },
+  "robkong": {
+    "char1": [
+      "audio/robkong_char1_0.mp3",
+      "audio/robkong_char1_1.mp3"
+    ],
+    "char2": [
+      "audio/robkong_char2_0.mp3",
+      "audio/robkong_char2_1.mp3"
+    ],
+    "char3": [
+      "audio/robkong_char3_0.mp3",
+      "audio/robkong_char3_1.mp3"
+    ],
+    "char4": [
+      "audio/robkong_char4_0.mp3",
+      "audio/robkong_char4_1.mp3"
+    ]
+  },
+  "discard": {
+    "char1": [
+      "audio/discard_char1_0.mp3",
+      "audio/discard_char1_1.mp3",
+      "audio/discard_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/discard_char2_0.mp3",
+      "audio/discard_char2_1.mp3",
+      "audio/discard_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/discard_char3_0.mp3",
+      "audio/discard_char3_1.mp3",
+      "audio/discard_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/discard_char4_0.mp3",
+      "audio/discard_char4_1.mp3",
+      "audio/discard_char4_2.mp3"
+    ]
+  },
+  "taunt": {
+    "char1": [
+      "audio/taunt_char1_0.mp3",
+      "audio/taunt_char1_1.mp3",
+      "audio/taunt_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/taunt_char2_0.mp3",
+      "audio/taunt_char2_1.mp3",
+      "audio/taunt_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/taunt_char3_0.mp3",
+      "audio/taunt_char3_1.mp3",
+      "audio/taunt_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/taunt_char4_0.mp3",
+      "audio/taunt_char4_1.mp3",
+      "audio/taunt_char4_2.mp3"
+    ]
+  },
+  "start": {
+    "char1": [
+      "audio/start_char1_0.mp3",
+      "audio/start_char1_1.mp3"
+    ],
+    "char2": [
+      "audio/start_char2_0.mp3",
+      "audio/start_char2_1.mp3"
+    ],
+    "char3": [
+      "audio/start_char3_0.mp3",
+      "audio/start_char3_1.mp3"
+    ],
+    "char4": [
+      "audio/start_char4_0.mp3",
+      "audio/start_char4_1.mp3"
+    ]
+  },
+  "tenpai": {
+    "char1": [
+      "audio/tenpai_char1_0.mp3",
+      "audio/tenpai_char1_1.mp3",
+      "audio/tenpai_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/tenpai_char2_0.mp3",
+      "audio/tenpai_char2_1.mp3",
+      "audio/tenpai_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/tenpai_char3_0.mp3",
+      "audio/tenpai_char3_1.mp3",
+      "audio/tenpai_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/tenpai_char4_0.mp3",
+      "audio/tenpai_char4_1.mp3",
+      "audio/tenpai_char4_2.mp3"
+    ]
+  },
+  "flower": {
+    "char1": [
+      "audio/flower_char1_0.mp3",
+      "audio/flower_char1_1.mp3",
+      "audio/flower_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/flower_char2_0.mp3",
+      "audio/flower_char2_1.mp3",
+      "audio/flower_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/flower_char3_0.mp3",
+      "audio/flower_char3_1.mp3",
+      "audio/flower_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/flower_char4_0.mp3",
+      "audio/flower_char4_1.mp3",
+      "audio/flower_char4_2.mp3"
+    ]
+  },
+  "blame": {
+    "char1": [
+      "audio/blame_char1_0.mp3",
+      "audio/blame_char1_1.mp3",
+      "audio/blame_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/blame_char2_0.mp3",
+      "audio/blame_char2_1.mp3",
+      "audio/blame_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/blame_char3_0.mp3",
+      "audio/blame_char3_1.mp3",
+      "audio/blame_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/blame_char4_0.mp3",
+      "audio/blame_char4_1.mp3",
+      "audio/blame_char4_2.mp3"
+    ]
+  },
+  "hurry": {
+    "char1": [
+      "audio/hurry_char1_0.mp3",
+      "audio/hurry_char1_1.mp3",
+      "audio/hurry_char1_2.mp3"
+    ],
+    "char2": [
+      "audio/hurry_char2_0.mp3",
+      "audio/hurry_char2_1.mp3",
+      "audio/hurry_char2_2.mp3"
+    ],
+    "char3": [
+      "audio/hurry_char3_0.mp3",
+      "audio/hurry_char3_1.mp3",
+      "audio/hurry_char3_2.mp3"
+    ],
+    "char4": [
+      "audio/hurry_char4_0.mp3",
+      "audio/hurry_char4_1.mp3",
+      "audio/hurry_char4_2.mp3"
+    ]
+  }
+}
